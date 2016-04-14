@@ -284,7 +284,7 @@ class AdminStockInstantStateControllerCore extends AdminController
                 $query->select('SUM(usable_quantity) as usable_quantity');
                 $query->select('SUM(price_te * physical_quantity) as valuation');
                 $query->from('stock');
-                $query->where('id_product = '.(int)$item['id_product'].' AND id_product_attribute = '.(int)$item['id_product_attribute']);
+                $query->where('id_product = '.(int)$item['id_product'].' AND id_product_attribute = '.(int)$item['id_product_attribute']. ' AND price_te = '.(int)$item['price_te']);
 
                 if ($this->getCurrentCoverageWarehouse() != -1) {
                     $query->where('id_warehouse = '.(int)$this->getCurrentCoverageWarehouse());
